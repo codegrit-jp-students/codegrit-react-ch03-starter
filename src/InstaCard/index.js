@@ -6,11 +6,18 @@ import ThemeSwitcher from './ThemeSwitcher';
 export default class extends Component {
   state = {
     theme: 'light', // 'light'または'dark'
+    className: 'insta-card',
   }
 
   onSwitchTheme = (theme, e = null) => {
     if (e) e.preventDefault();
     this.setState({ theme })
+    if (theme === 'light') {
+      this.setState({ className: 'insta-card' })
+    }
+    if (theme === 'dark') {
+      this.setState({ className: 'insta-card insta-card-dark' })
+    }
   }
 
   render() {
@@ -21,8 +28,8 @@ export default class extends Component {
     */
     return (
       <div className="card-wrapper">
-        <ThemeSwitcher  />
-        <article className="insta-card">
+        <ThemeSwitcher theme={this.state.theme} switchTheme={(e) => this.onSwitchTheme(e)} />
+        <article className={this.state.className}>
           <Header />
           <Body />
         </article>
