@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const ThemeSwitcher = ({ theme, switchTheme }) => (
   <ul className="theme-swither">
     <li>
       <a 
         className={theme === 'light' && "chosen"}
-        href 
+        href
         onClick={(e) => switchTheme('light', e)}>
         Light
       </a>
@@ -20,5 +21,9 @@ const ThemeSwitcher = ({ theme, switchTheme }) => (
     </li>
   </ul>
 );
+
+ThemeSwitcher.propTypes = {
+  switchTheme: PropTypes.func.isRequired
+}
 
 export default ThemeSwitcher;
