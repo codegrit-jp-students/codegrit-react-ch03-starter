@@ -5,6 +5,7 @@ import BubbleImg from '../../images/bubble.png';
 import BubbleImgDark from '../../images/bubble-gray.png';
 import BookmarkImg from '../../images/bookmark.png';
 import BookmarkImgDark from '../../images/bookmark-gray.png';
+import PropTypes from 'prop-types'
 
 const MainIcons = ({ theme }) => (
   <div className="card-main-icons">
@@ -32,5 +33,10 @@ const MainIcons = ({ theme }) => (
     </ul>
   </div>
 );
-
+MainIcons.defaultProps = {
+  theme: 'light',
+}
+MainIcons.propsTypes = {
+  theme: PropTypes.string,
+}
 export default MainIcons;

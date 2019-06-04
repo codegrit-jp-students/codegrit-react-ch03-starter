@@ -3,7 +3,8 @@ import Header from './Header';
 import Body from './Body';
 import ThemeSwitcher from './ThemeSwitcher';
 
-export default class extends Component {
+var classNames = require('classnames');
+class index extends Component {
   state = {
     theme: 'light', // 'light'または'dark'
   }
@@ -19,10 +20,14 @@ export default class extends Component {
       themeが'dark'なら'insta-card insta-card-dark'と
       クラス名が変わるようにします。
     */
+    var articleClass = classNames({
+      'insta-card': true,
+      'insta-card-dark': this.state.theme === 'dark'
+    })
     return (
       <div className="card-wrapper">
-        <ThemeSwitcher  />
-        <article className="insta-card">
+        <ThemeSwitcher theme={this.state.theme} switchTheme={(e) => this.onSwitchTheme(e)} />
+        <article className={articleClass}>
           <Header />
           <Body />
         </article>
@@ -30,3 +35,5 @@ export default class extends Component {
     );
   }
 }
+
+export default index
