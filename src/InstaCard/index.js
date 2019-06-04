@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Body from './Body';
 import ThemeSwitcher from './ThemeSwitcher';
-import PropTypes from 'prop-types'
 
 var classNames = require('classnames');
 class index extends Component {
@@ -35,15 +34,6 @@ class index extends Component {
       </div>
     );
   }
-}
-
-index.defaultProps = {
-  theme: 'light',
-  className: 'insta-card',
-}
-index.propsTypes = {
-  theme: PropTypes.string,
-  className: PropTypes.string
 }
 
 export default index

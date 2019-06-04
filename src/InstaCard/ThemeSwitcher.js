@@ -21,8 +21,12 @@ const ThemeSwitcher = ({ theme, switchTheme }) => (
     </li>
   </ul>
 );
+ThemeSwitcher.defaultProps = {
+  theme: 'light'
+}
 
 ThemeSwitcher.propTypes = {
+  theme: PropTypes.string,
   switchTheme: PropTypes.func.isRequired
 }
 
